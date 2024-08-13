@@ -2,13 +2,16 @@
 
 import Antd from "ant-design-vue";
 import { createI18n } from 'vue-i18n'
-import en from '../components/language/en.js'
-import zh from '../components/language/zh.js'
-import '../assets/index.less'
+import en from '@/i18n/en.js'
+import zh from '@/i18n/zh.js'
 
+
+const cookies = useCookie("locale")
+const lang = cookies.value || 'en'
+cookies.value = lang
 const i18n = createI18n({
   legacy: false,
-  locale: 'en',
+  locale: lang,
   messages: {
     en,
     zh

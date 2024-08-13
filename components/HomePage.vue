@@ -37,15 +37,17 @@ import logo from '/logo.svg'
 // import ContentPage from '@/views/ContentPage.vue';
 import { useI18n } from 'vue-i18n';
 
-const { locale }  = useI18n()
+const { locale } = useI18n()
+const langCookie = useCookie("locale")
 
 const headerStyle = {
   padding: '40px 32px',
   lineHeight: '24px',
 };
-const language = ref('en')
+const language = ref(langCookie.value)
 const changeLanguage = (lang) => {
   locale.value = lang
+  langCookie.value = lang
 }
 
 </script>
