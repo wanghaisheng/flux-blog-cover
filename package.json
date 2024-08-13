@@ -1,0 +1,21 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^3.12.4",
+    "vue": "latest",
+    "ant-design-vue": "^4.2.3"
+  },
+  "devDependencies": {
+    "less": "^4.2.0",
+    "vue-i18n": "^9.13.1"
+  }
+}

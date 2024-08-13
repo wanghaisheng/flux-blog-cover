@@ -1,0 +1,136 @@
+@prefixCls: yh;
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  background-color: var(--background);
+}
+body{
+  max-width: 1280px;
+  margin: 0 auto;
+  color: var(--fontColor) !important;
+}
+a{
+  text-decoration: inherit;
+}
+:where(.css-dev-only-do-not-override-19iuou){
+  //下拉框
+  &.@{prefixCls}-select-single.@{prefixCls}-select-open .@{prefixCls}-select-selection-item{
+    color: var(--fontColor);
+  }
+  &.@{prefixCls}-select:not(.@{prefixCls}-select-customize-input){
+    .@{prefixCls}-select-arrow{
+      color: var(--fontColor);
+    }
+    .@{prefixCls}-select-selector{
+      color: var(--fontColor);
+      border-color: var(--borderColor);
+      height: 40px;
+      background-color: var(--background);
+      .@{prefixCls}-select-selection-item,.@{prefixCls}-select-selection-search-input{ 
+        line-height: 38px;
+      }
+    }
+  }
+  &.@{prefixCls}-select-focused{
+    &.@{prefixCls}-select:not(.@{prefixCls}-select-customize-input):not(.@{prefixCls}-select-disabled):not(.@{prefixCls}-pagination-size-changer) .@{prefixCls}-select-selector{
+      border-color: var(--borderColor);
+      box-shadow: none;
+    }
+  }
+  &.@{prefixCls}-select-dropdown{
+    color: var(--fontColor);
+    border:1px solid var(--borderColor);
+    background-color: var(--background);
+    .@{prefixCls}-select-item{
+      color: var(--fontColor);
+    }
+    .@{prefixCls}-select-item-option-selected:not(.@{prefixCls}-select-item-option-disabled){
+      color: var(--fontColor);
+      background-color: var(--backgroundhover);
+    }
+  }
+  //按钮
+  &.@{prefixCls}-btn-default{
+    color: var(--fontColor);
+    background: transparent;
+    border-color: var(--borderColor);
+    &:not(:disabled):hover{
+      color: #fff;
+      background-color: var(--backgroundhover);
+      border-color: var(--backgroundhover);
+    }
+  }
+  &.@{prefixCls}-btn-primary{
+    color: #fff;
+    background-color: rgb(168, 85, 247);
+    border-color: var(--background);
+    &:not(:disabled):hover{
+      color: #fff;
+      background-color:rgb(147 51 234);
+      border-color: var(--background);
+    }
+    span{
+      margin-left: 10px;
+    }
+  }
+  &.@{prefixCls}-btn.@{prefixCls}-btn-lg{
+    height: 56px;
+    padding: 14.428571px 30px;
+  }
+  //折叠面板
+  &.@{prefixCls}-collapse{
+    font-size: 18px;
+    color: var(--fontColor);
+    border-color: var(--borderColor);
+    >.@{prefixCls}-collapse-item,.@{prefixCls}-collapse-content{
+      border-color: var(--borderColor);
+    }
+    >.@{prefixCls}-collapse-item >.@{prefixCls}-collapse-header{
+      color: var(--fontColor);
+    }
+    .@{prefixCls}-collapse-content{
+      color: var(--fontColorDesc);
+      background-color: var(--darkGreyBackColor);
+    }
+  }
+  //锚点
+  &.@{prefixCls}-anchor-wrapper .@{prefixCls}-anchor{
+    color: var(--fontColor);
+    font-size: 18px;
+    .@{prefixCls}-anchor-link-title{
+      color: var(--fontColor);
+    }
+    .@{prefixCls}-anchor-link-active>.@{prefixCls}-anchor-link-title{
+      color: var(--fontColor);
+    }
+  }
+  &.@{prefixCls}-anchor-wrapper-horizontal .@{prefixCls}-anchor .@{prefixCls}-anchor-ink{
+    display: none;
+  }
+}
+button:focus, button:focus-visible{
+  outline: none;
+}
+
+.fw{
+  font-weight: 700;
+}
+.mt60{
+  margin-top: 60px;
+}
+.b-r{
+  border-right: 1px solid var(--borderColor);
+}
+.b-l{
+  border-left: 1px solid var(--borderColor);
+}
+.b-t{
+  border-top: 1px solid var(--borderColor);
+}
+.b-b{
+  border-bottom: 1px solid var(--borderColor);
+}
