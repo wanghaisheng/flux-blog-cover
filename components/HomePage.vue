@@ -1,7 +1,7 @@
 <template>
   <a-layout-header :style="headerStyle">
     <div class="header-nav">
-      <div>
+      <div class="header-left">
         <a-image :src="logo" :width="32" />
         <label class="fw header-name">FluxAI</label>
       </div>
@@ -64,6 +64,10 @@ const changeLanguage = (lang) => {
   justify-content: space-between;
   >div{
     flex: 1;
+  }
+  .header-left{
+    display: flex;
+    align-items: center;
   }
   .header-nav-list a{
     color: var(--fontColor);
