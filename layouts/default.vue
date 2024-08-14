@@ -3,8 +3,10 @@
     <a-layout-header :style="headerStyle">
       <div class="header-nav">
         <div class="header-left">
-          <a-image :src="logo" :width="32" />
-          <label class="fw header-name">FluxAI</label>
+          <nuxt-link to="/">
+            <img :src="logo" :width="32" />
+            <label class="fw header-name">FluxAI</label>
+          </nuxt-link>
         </div>
         <div class="header-nav-list">
           <!-- <a>Create</a> -->
@@ -64,9 +66,15 @@ const changeLanguage = (lang) => {
   >div{
     flex: 1;
   }
-  .header-left{
+  .header-left a{
+    cursor: pointer;
+    color: var(--fontColor);
     display: flex;
     align-items: center;
+    label{
+      font-size: 20px;
+      cursor: pointer;
+    }
   }
   .header-nav-list a{
     color: var(--fontColor);

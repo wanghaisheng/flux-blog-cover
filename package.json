@@ -10,9 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "ant-design-vue": "^4.2.3",
     "nuxt": "^3.12.4",
-    "vue": "latest",
-    "ant-design-vue": "^4.2.3"
+    "vue": "latest"
   },
   "devDependencies": {
     "less": "^4.2.0",

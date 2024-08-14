@@ -54,6 +54,11 @@ a{
     }
   }
   //按钮
+  &.@{prefixCls}-btn.@{prefixCls}-btn-icon-only{
+    span{
+      margin-left: 0;
+    }
+  }
   &.@{prefixCls}-btn-default{
     color: var(--fontColor);
     background: transparent;
@@ -111,7 +116,49 @@ a{
   &.@{prefixCls}-anchor-wrapper-horizontal .@{prefixCls}-anchor .@{prefixCls}-anchor-ink{
     display: none;
   }
+  //输入框
+  &.@{prefixCls}-input-number{
+    color: var(--fontColor);
+    border-color: var(--borderColor);
+    background-color: var(--background);
+    .@{prefixCls}-input-number-input{
+      color: var(--fontColor);
+    }
+    .@{prefixCls}-input-number-handler{
+      border-inline-start: 1px solid var(--borderColor);
+    }
+    .@{prefixCls}-input-number-handler-down{
+      border-block-start: var(--borderColor);
+    }
+    .@{prefixCls}-input-number-handler-wrap{
+      background-color: var(--backgroundhover);
+    }
+    .@{prefixCls}-input-number-handler-up-inner,.@{prefixCls}-input-number-handler-down-inner{
+      color: var(--fontColor);
+    }
+  }
+  //滑动条
+  &.@{prefixCls}-slider{
+    .@{prefixCls}-slider-rail,&:hover .@{prefixCls}-slider-rail{
+      background-color: var(--fontColor);
+    }
+  }
+  //文字提示
+  &.@{prefixCls}-popover{
+    color: var(--fontColor);
+    .@{prefixCls}-popover-inner{
+      border:1px solid var(--borderColor);
+      background-color: var(--background);
+    }
+    .@{prefixCls}-popover-inner-content{
+      color: var(--fontColor);
+    }
+    .@{prefixCls}-popover-arrow:before{
+      background: var(--borderColor);
+    }
+  }
 }
+
 button:focus, button:focus-visible{
   outline: none;
 }
@@ -121,6 +168,9 @@ button:focus, button:focus-visible{
 }
 .mt60{
   margin-top: 60px;
+}
+.mt20{
+  margin-top: 20px;
 }
 .b-r{
   border-right: 1px solid var(--borderColor);
@@ -133,4 +183,17 @@ button:focus, button:focus-visible{
 }
 .b-b{
   border-bottom: 1px solid var(--borderColor);
+}
+.t-c{
+  text-align: center;
+}
+.b-r-8{
+  border-radius: 8px;
+}
+.d-c{
+  display: flex;
+  align-items: center;
+}
+.b-4{
+  border: 1px solid var(--borderColor);
 }
