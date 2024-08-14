@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      authorization: 'Bearer sk-vujqcwwezyhldgvbyuqayeazbwrzcraxgvcsnanarbwepnpw'
+      authorization: ''
     },
     body: JSON.stringify({
       prompt,

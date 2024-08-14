@@ -34,7 +34,7 @@
 
 
 <script setup>
-import logo from '/logo.svg'
+import logo from '/logo.png'
 import { useI18n } from 'vue-i18n';
 
 const { locale } = useI18n()
