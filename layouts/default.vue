@@ -11,10 +11,9 @@
         <div class="header-nav-list">
           <!-- <a>Create</a> -->
           <nuxt-link to="/Create">Create</nuxt-link>
-          <a href="#Features">Features</a>
-          <a href="#Pricing">Pricing</a>
-          <!-- <a>Testimonials</a> -->
-          <a href="#FAQ">FAQ</a>
+          <nuxt-link to="/#Features">Features</nuxt-link>
+          <nuxt-link to="/#Pricing">Pricing</nuxt-link>
+          <nuxt-link to="/#FAQ">FAQ</nuxt-link>
         </div>
         <div class="header-right">
           <a-select

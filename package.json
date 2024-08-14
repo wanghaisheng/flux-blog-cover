@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "ant-design-vue": "^4.2.3",
+    "lodash": "^4.17.21",
     "nuxt": "^3.12.4",
     "vue": "latest"
   },
