@@ -12,9 +12,11 @@ useHead({
 </script>
 
 <template>
-<a-config-provider prefixCls="yh">
-  <HomePage  />
-</a-config-provider>
-
+  <a-config-provider prefixCls="yh">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+    <a-back-top />
+  </a-config-provider>
 </template>
 
