@@ -53,5 +53,18 @@ export default {
     Q2: 'What are the credit costs for the Flux.1 models?',
     Q3: 'Where can I view my generated artworks?',
     Q4: `How can I download the images I've generated?`
+  },
+  create: {
+    title1: 'Flux AI Pro Image Generator',
+    title2: 'Generate images with our most advanced AI model, powered by FLUX.1 Pro.',
+    tip: 'Generated image will appear here',
+    setting: 'Advanced Settings',
+    steps: 'Num Inference Steps',
+    seed: 'Seed',
+    seedTip: 'The same seed and the same prompt given to the same version of the model will output the same image every time. 0 is random seed. Default value: 0.',
+    generate: 'Generate',
+    ratio: 'Aspect Ratio',
+    setpTip1: 'The number of inference steps to perform. Default value: ',
+    setpTip2: '. Increase if the output is blurry.'
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="t-c">
-      <h1>Flux AI Pro 图像生成器</h1>
-      <h2>使用由 Flux.1 Pro 提供支持的最先进的 AI 模型生成图像。</h2>
+      <h1>{{ $t('create.title1') }}</h1>
+      <h2>{{ $t('create.title2') }}</h2>
     </div>
     <div class="c-w mt60 b-r-8">
       <div class="c-left">
@@ -18,7 +18,7 @@
             <a-select-option value="Flux Pro">Flux Pro</a-select-option>
           </a-select>
           <div>
-            Aspect Ratio &nbsp;
+            {{ $t('create.ratio') }} &nbsp;
             <a-select
               :dropdownMatchSelectWidth="false"
               v-model:value="landscape"
@@ -32,12 +32,12 @@
           </div>
         </div>
         <div class="mt20 b-r-8 b-4" style="padding: 12px;">
-          <h3>高级设置</h3>
+          <h3>{{ $t('create.setting') }}</h3>
           <div class="d-c c-t">
-            <label>推理步骤数</label>
+            <label>{{ $t('create.steps') }}</label>
             <a-popover>
               <template #content>
-                要执行的推理步骤数。 默认值：{{defSteps}}。 如果输出模糊则增加。
+                {{ $t('create.setpTip1') }}{{defSteps}}{{ $t('create.setpTip2') }}
               </template>
               <InfoCircleOutlined />
             </a-popover>
@@ -51,10 +51,10 @@
             </a-col>
           </a-row>
           <div class="d-c c-t">
-            <label>种子</label>
+            <label>{{ $t('create.seed') }}</label>
             <a-popover>
               <template #content>
-                为同一版本的模型提供相同的种子和相同的提示，每次都会输出相同的图像。 0 是随机种子。 默认值：0。
+                {{ $t('create.seedTip') }}
               </template>
               <InfoCircleOutlined />
             </a-popover>
@@ -69,12 +69,14 @@
           </div>
         </div>
         <div class="mt20" style="width: 100%; padding: 0 100px;box-sizing: border-box;">
-          <a-button type="primary"  :loading="loading" block size="large" @click="onCreate">产生</a-button>
+          <a-button type="primary"  :loading="loading" block size="large" @click="onCreate">{{$t('create.generate')}}</a-button>
         </div>
       </div>
       <div class="c-right b-4 b-r-8">
         <a-image v-if="imageUrl" :src="imageUrl" width="100%" />
-        <label v-else>生成的图像将出现在这里</label>
+        <label v-else>
+          {{ $t('create.tip') }}
+        </label>
         <a-float-button
           v-if="imageUrl"
           class="down-btn"
