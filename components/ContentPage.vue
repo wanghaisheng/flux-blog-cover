@@ -19,8 +19,6 @@
   <FeaturePage class="mt60" />
   <PricingPage class="mt60" />
   <FAQPage class="mt60" />
-
-  <LoginPage />
 </template>
 
 <script setup>

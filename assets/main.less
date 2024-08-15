@@ -17,6 +17,9 @@ a{
   text-decoration: inherit;
 }
 :where(.css-dev-only-do-not-override-19iuou),:where(.css-19iuou){
+  a,a:hover{
+    color: var(--fontColor);
+  }
   //下拉框
   &.@{prefixCls}-select-single.@{prefixCls}-select-open .@{prefixCls}-select-selection-item{
     color: var(--fontColor);
@@ -148,7 +151,7 @@ a{
       background-color: var(--fontColor);
     }
   }
-  //文字提示
+  //popover
   &.@{prefixCls}-popover{
     color: var(--fontColor);
     .@{prefixCls}-popover-inner{
@@ -161,6 +164,13 @@ a{
     .@{prefixCls}-popover-arrow:before{
       background: var(--borderColor);
     }
+    .@{prefixCls}-popover-title{
+      color: var(--fontColor);
+    }
+  }
+  //分割线
+  &.@{prefixCls}-divider{
+    border-block-start:1px solid  var(--borderColor);
   }
 }
 
