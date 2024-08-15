@@ -15,6 +15,7 @@
     </nuxt-link>
   </div>
 
+  <CasePage class="mt60" />
   <FeaturePage class="mt60" />
   <PricingPage class="mt60" />
   <FAQPage class="mt60" />

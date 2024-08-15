@@ -100,8 +100,9 @@
 import _ from 'lodash'
 import {InfoCircleOutlined, ReloadOutlined, DownloadOutlined} from '@ant-design/icons-vue'
 
+const route = useRoute()
 const fluxM = ref('Flux Schnell')
-const prompt = ref('')
+const prompt = ref(route.query.prompt ? decodeURIComponent(route.query.prompt) : '')
 const landscape = ref('4/3')
 const steps = ref(4)
 const seed = ref(0)
