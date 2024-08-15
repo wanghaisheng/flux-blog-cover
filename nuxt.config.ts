@@ -7,8 +7,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      googleClientId:
-        "169537564056-c7uq0pr86250qi6voriufik2093lqobl.apps.googleusercontent.com",
+      googleClientId: '101427724864-400ueqgg6skkbbtluee7828d7pf5enr8.apps.googleusercontent.com'
+        //"169537564056-c7uq0pr86250qi6voriufik2093lqobl.apps.googleusercontent.com",
     },
   },
   imports: {
