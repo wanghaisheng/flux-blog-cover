@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  const isLoggedIn = useState('isLoggedIn', () => false);
-  if (!isLoggedIn.value) {
+  const isLoggedIn = !!useState('isLogIn').value
+  if (!isLoggedIn) {
     handleGoogleLogin()
   }
-  return isLoggedIn.value
+  return isLoggedIn
 })
