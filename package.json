@@ -17,7 +17,9 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "google-auth-library": "^9.13.0",
     "less": "^4.2.0",
-    "vue-i18n": "^9.13.1"
+    "vue-i18n": "^9.13.1",
+    "vue3-google-login": "^2.0.31"
   }
 }

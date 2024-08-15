@@ -60,9 +60,14 @@ a{
     }
   }
   &.@{prefixCls}-btn-default{
+    height: 38px;
+    padding: 0.428571px 30px;
     color: var(--fontColor);
     background: transparent;
     border-color: var(--borderColor);
+    &:focus-visible{
+      outline: none;
+    }
     &:not(:disabled):hover{
       color: #fff;
       background-color: var(--backgroundhover);

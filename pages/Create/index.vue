@@ -100,6 +100,11 @@
 import _ from 'lodash'
 import {InfoCircleOutlined, ReloadOutlined, DownloadOutlined} from '@ant-design/icons-vue'
 
+definePageMeta({
+  middleware: ["auth"]
+  // 或 middleware: 'auth'
+})
+
 const route = useRoute()
 const fluxM = ref('Flux Schnell')
 const prompt = ref(route.query.prompt ? decodeURIComponent(route.query.prompt) : '')
