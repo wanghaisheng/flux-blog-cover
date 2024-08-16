@@ -10,24 +10,25 @@ export default defineEventHandler(async (event) => {
   }
   let api = '';
   if (fluxM === 'Flux Dev') {
-    api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-dev/predictions'
+    api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-schnell/predictions'
+    // api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-dev/predictions'
   } else if (fluxM === 'Flux Pro') { 
     api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-pro/predictions'
   }
-  const repo = await $fetch(api, {
+  const repo = await $fetch('https://api.replicate.com/v1/models/black-forest-labs/flux-schnell/predictions', {
     method: 'POST',
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      authorization: authEnvVar
+      bearer: authEnvVar
     },
     body: {
-      "input": {
-        "prompt",
-        "guidance",
-        "aspect_ratio",
-        "output_format": "webp",
-        "output_quality"
+      input: {
+        prompt,
+        guidance,
+        aspect_ratio,
+        output_format: "webp",
+        output_quality
       }
     }
   })
