@@ -156,7 +156,6 @@ const onCreate = async () => {
     seed: seed.value
   }
   const { data } = await useFetch('/api/schnell?' + objectToParams(query))
-  console.log(data)
   imageUrl.value = data.value?.images[0]?.url
   loading.value = false
 }

@@ -1,5 +1,6 @@
 {
   "env": {
-    "siliconflow_apikey": "@siliconflow_apikey"
+    "siliconflow_apikey": "@siliconflow_apikey",
+    "replicate_apikey": "@replicate_apikey"
   }
 }
