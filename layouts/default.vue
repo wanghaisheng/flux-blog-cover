@@ -52,6 +52,7 @@ const changeLanguage = (lang) => {
   langCookie.value = lang
 }
 
+verifyIdToken()
 
 </script>
 

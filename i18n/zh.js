@@ -2,6 +2,9 @@ export default  {
   language: {
     name: '中文',
   },
+  head: {
+    title: 'Flux AI 图像生成器'
+  },
   Hero: {
     title1: '',
     title2: '通量人工智能',
@@ -65,6 +68,7 @@ export default  {
     setpTip2: '。 如果输出模糊则增加。'
   },
   login: {
-    login: '登录'
+    login: '登录',
+    logout: '退出'
   }
 }

@@ -4,12 +4,17 @@ export default defineEventHandler(async (event) => {
   const {
     prompt,image_size,num_inference_steps,seed
   } = getQuery(event)
+
+  const authEnvVar = process.env['AUTH'];
+  if (!authEnvVar) {
+    throw new Error('The $AUTH environment variable was not found!');
+  }
   const repo = await $fetch('https://api.siliconflow.cn/v1/black-forest-labs/FLUX.1-schnell/text-to-image', {
     method: 'POST',
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      authorization: 'Bearer sk-ijxoijxrnuaxvnlhmezcklsukdupqqnclgntxjjhcstdtvkh'
+      authorization: authEnvVar
     },
     body: JSON.stringify({
       prompt,

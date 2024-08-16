@@ -2,6 +2,9 @@ export default {
   language: {
     name: 'English',
   },
+  head: {
+    title: 'Flux AI Image Generator'
+  },
   Hero: {
     title1: 'The',
     title2: 'Flux AI',
@@ -68,6 +71,7 @@ export default {
     setpTip2: '. Increase if the output is blurry.'
   },
   login: {
-    login: 'Login'
+    login: 'Sign In',
+    logout: 'Sign Out'
   }
 }

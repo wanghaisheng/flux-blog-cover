@@ -13,8 +13,8 @@
         <div class="l-in">
           <a-list size="small" :data-source="data">
             <template #renderItem="{ item }">
-              <a-list-item>
-                <a :title="item.title">{{ item.title }}</a>
+              <a-list-item @click="item.fun">
+                <a :title="item.title">{{ $t(item.title) }}</a>
               </a-list-item>
             </template>
           </a-list>
@@ -25,10 +25,8 @@
 </template>
 
 <script setup>
-
-const data = [
-  {title: 'Sign out'},
-]
+// import { useI18n }  from 'vue-i18n'
+// const { t } = useI18n();
 
 const isLogin = computed(() => {
   return useState('isLogIn').value
@@ -40,6 +38,15 @@ const userInfo = computed(() => {
 const login = async () => {
   handleGoogleLogin()
 }
+
+const logout = () => {
+  handleGoogleLogout()
+}
+
+const data = [
+  {title: 'login.logout', fun: logout},
+]
+
 </script>
 
 

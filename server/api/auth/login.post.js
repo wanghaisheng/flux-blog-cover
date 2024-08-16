@@ -2,6 +2,7 @@ import { OAuth2Client } from 'google-auth-library'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
+  
   const oauth2Client = new OAuth2Client()
   oauth2Client.setCredentials({ access_token: body.accessToken })
 
@@ -11,8 +12,11 @@ export default defineEventHandler(async (event) => {
     })
     .then((response) => response.data)
     .catch(() => null)
-
-  oauth2Client.revokeCredentials()
+  
+  if (body.isLogout) {
+    return oauth2Client.revokeCredentials()
+  }
+  
 
   if (!userInfo) {
     throw createError({
@@ -20,7 +24,6 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Invalid token'
     })
   }
-
   return {
     id: userInfo.sub,
     name: userInfo.name,
