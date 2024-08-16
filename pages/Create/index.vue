@@ -169,8 +169,15 @@ const onPayflux = async () => {
     output_quality: steps.value,
     fluxM: fluxM.value
   }
-  const { data } = await useFetch('/api/flux?'+objectToParams(query))
-  imageUrl.value = data.value?.images[0]?.url
+    const { data } = await useFetch('/api/flux?' + objectToParams(query))
+    console.log(data)
+    try {
+        imageUrl.value = data.value?.output[0]
+    } catch (errorInfo) {
+        console.log(errorInfo)
+
+    }
+  
   loading.value = false
 }
 

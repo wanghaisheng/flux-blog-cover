@@ -8,31 +8,44 @@ export default defineEventHandler(async (event) => {
   if (!authEnvVar) {
     throw new Error('The $replicate_apikey environment variable was not found!');
   }
-  let api = '';
-  if (fluxM === 'Flux Dev') {
-    api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-schnell/predictions'
-    // api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-dev/predictions'
-  } else if (fluxM === 'Flux Pro') { 
-    api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-pro/predictions'
-  }
-  const repo = await $fetch('https://api.replicate.com/v1/models/black-forest-labs/flux-schnell/predictions', {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-      'content-type': 'application/json',
-      bearer: authEnvVar
-    },
-    body: {
-      input: {
-        prompt,
-        guidance,
-        aspect_ratio,
-        output_format: "webp",
-        output_quality
+    
+      let api = '';
+      if (fluxM === 'Flux Dev') {
+        api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-schnell/predictions'
+        // api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-dev/predictions'
+      } else if (fluxM === 'Flux Pro') { 
+        api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-pro/predictions'
       }
-    }
-  })
+    const repo = await $fetch(api, {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+          authorization: authEnvVar
+        },
+        body: {
+          input: {
+            prompt,
+            guidance: Number(guidance),
+            aspect_ratio: '16:9',//String(aspect_ratio),
+            output_format: "webp",
+            output_quality: Number(output_quality)
+          }
+        }
+      })
 
-  return repo
+    const imgapi = repo?.urls?.get //'https://api.replicate.com/v1/predictions/13jz6mfe6drm00chbdmbjtxn4c'
+    if (imgapi) {
+        return await $fetch(imgapi, {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                authorization: authEnvVar
+            },
+        })
+    }
+    throw new Error('Create Failed')
+    return false
 })
 
