@@ -1,3 +1,5 @@
+
+
 <template>
   <div>
     <div class="t-c">
@@ -23,18 +25,19 @@
               :dropdownMatchSelectWidth="false"
               v-model:value="landscape"
             >
-              <a-select-option value="1">1:1</a-select-option>
-              <a-select-option value="4/3">4:3</a-select-option>
-              <a-select-option value="3/4">3:4</a-select-option>
-              <a-select-option value="16/9">16:9</a-select-option>
-              <a-select-option value="9/16">9:16</a-select-option>
+              <a-select-option value="1:1">1:1</a-select-option>
+              <a-select-option value="4:3">4:3</a-select-option>
+              <a-select-option value="3:4">3:4</a-select-option>
+              <a-select-option value="16:9">16:9</a-select-option>
+              <a-select-option value="9:16">9:16</a-select-option>
             </a-select>
           </div>
         </div>
         <div class="mt20 b-r-8 b-4" style="padding: 12px;">
           <h3>{{ $t('create.setting') }}</h3>
           <div class="d-c c-t">
-            <label>{{ $t('create.steps') }}</label>
+            <label v-if="fluxM === 'Flux Schnell'">{{ $t('create.steps') }}</label>
+            <label v-else>{{ $t('create.outputQuality') }}</label>
             <a-popover>
               <template #content>
                 {{ $t('create.setpTip1') }}{{defSteps}}{{ $t('create.setpTip2') }}
@@ -108,7 +111,7 @@ definePageMeta({
 const route = useRoute()
 const fluxM = ref('Flux Schnell')
 const prompt = ref(route.query.prompt ? decodeURIComponent(route.query.prompt) : '')
-const landscape = ref('4/3')
+const landscape = ref('4:3')
 const steps = ref(4)
 const seed = ref(0)
 const maxSeed = 9999999999
@@ -121,9 +124,9 @@ const stepsRange = computed(() => {
   if (fluxM.value === 'Flux Schnell') {
     return [1,12]
   }else if (fluxM.value === 'Flux Dev') {
-    return [1,50]
+    return [0,100]
   }else if (fluxM.value === 'Flux Pro') {
-    return [1,50]
+    return [0,100]
   }
 })
 
@@ -131,9 +134,9 @@ const defSteps =  computed(() => {
   if (fluxM.value === 'Flux Schnell') {
     return 4
   }else if (fluxM.value === 'Flux Dev') {
-    return 28
+    return 80
   }else if (fluxM.value === 'Flux Pro') {
-    return 28
+    return 80
   }
 })
 
@@ -143,22 +146,46 @@ const changeFluxM = () => {
 const reloadSeed = () => {
   seed.value = _.random(0, maxSeed)
 }
-const onCreate = async () => {
+
+
+const onCreate = () => {
   if (_.trim(prompt.value) === '') {
     promptError.value = true
     return;
   }
   loading.value = true
+  if (fluxM.value === 'Flux Schnell') { 
+    onFreeSchnell()
+  } else {
+    onPayflux()
+  }
+}
+
+const onPayflux = async () => {
   const query = {
     prompt: prompt.value,
-    image_size: `1024x${1024/eval(landscape.value)}`,
-    num_inference_steps: steps.value,
-    seed: seed.value
+    aspect_ratio: landscape.value,
+    guidance: seed.value,
+    output_quality: steps.value,
+    fluxM: fluxM.value
   }
-  const { data } = await useFetch('/api/schnell?' + objectToParams(query))
+  const { data } = await useFetch('/api/flux?'+objectToParams(query))
   imageUrl.value = data.value?.images[0]?.url
   loading.value = false
 }
+
+const onFreeSchnell = async () => {
+  const query = {
+    prompt: prompt.value,
+    image_size: `1024x${1024/eval(landscape.value.replace(':','/'))}`,
+    num_inference_steps: steps.value,
+    seed: seed.value
+  }
+  const { data } = await useFetch('/api/schnell?'+objectToParams(query)) 
+  imageUrl.value = data.value?.images[0]?.url
+  loading.value = false
+}
+
 const  objectToParams = (obj) => {
     return Object.keys(obj)
         .map(key => `${key}=${obj[key]}`)

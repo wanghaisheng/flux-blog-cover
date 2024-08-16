@@ -60,6 +60,7 @@ export default  {
     tip: '生成的图像将出现在这里',
     setting: '高级设置',
     steps: '推理步骤数',
+    outputQuality: '输出质量',
     seed: '种子',
     seedTip: '为同一版本的模型提供相同的种子和相同的提示，每次都会输出相同的图像。 0 是随机种子。 默认值：0。',
     generate: '产生',

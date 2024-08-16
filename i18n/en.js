@@ -63,6 +63,7 @@ export default {
     tip: 'Generated image will appear here',
     setting: 'Advanced Settings',
     steps: 'Num Inference Steps',
+    outputQuality: 'Output quality',
     seed: 'Seed',
     seedTip: 'The same seed and the same prompt given to the same version of the model will output the same image every time. 0 is random seed. Default value: 0.',
     generate: 'Generate',
