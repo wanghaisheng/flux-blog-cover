@@ -4,6 +4,9 @@ QuotesPorn
 
 quotes
 
+get top https://www.reddit.com/r/quotes.json
+and render to gif or funny photo
+
 
 # Nuxt 3 Minimal Starter
 
