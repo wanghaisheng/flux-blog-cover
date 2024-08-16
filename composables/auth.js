@@ -2,7 +2,7 @@
 import { googleTokenLogin } from 'vue3-google-login'
 // const { GoogleAuth } = require('google-auth-library');
 // import { GoogleAuth } from 'google-auth-library'
-
+const router = useRouter()
 const googleAuth = async (accessToken, isLogout = false) => {
   const { data } = await useFetch('/api/auth/login', {
     method: 'POST',
@@ -20,6 +20,7 @@ const googleAuth = async (accessToken, isLogout = false) => {
     useCookie('accessToken').value = ''
     useLogIn().value = false
     useUserInfo().value = {}
+    router.replace('/')
   }
 }
 
