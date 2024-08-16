@@ -4,10 +4,10 @@ export default defineEventHandler(async (event) => {
   const {
     prompt,image_size,num_inference_steps,seed
   } = getQuery(event)
-
-  const authEnvVar = process.env['AUTH'];
+  const config = useRuntimeConfig()
+  const authEnvVar = config['siliconflow_apikey'];
   if (!authEnvVar) {
-    throw new Error('The $AUTH environment variable was not found!');
+    throw new Error('The $siliconflow_apikey environment variable was not found!');
   }
   const repo = await $fetch('https://api.siliconflow.cn/v1/black-forest-labs/FLUX.1-schnell/text-to-image', {
     method: 'POST',

@@ -6,6 +6,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   runtimeConfig: {
+    siliconflow_apikey: process.env.siliconflow_apikey,
+    replicate_apikey: process.env.replicate_apikey,
     public: {
       googleClientId: '101427724864-400ueqgg6skkbbtluee7828d7pf5enr8.apps.googleusercontent.com'
         //"169537564056-c7uq0pr86250qi6voriufik2093lqobl.apps.googleusercontent.com",
