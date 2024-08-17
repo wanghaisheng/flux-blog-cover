@@ -69,7 +69,8 @@ export default {
     generate: 'Generate',
     ratio: 'Aspect Ratio',
     setpTip1: 'The number of inference steps to perform. Default value: ',
-    setpTip2: '. Increase if the output is blurry.'
+    setpTip2: '. Increase if the output is blurry.',
+    size: 'size'
   },
   login: {
     login: 'Sign In',

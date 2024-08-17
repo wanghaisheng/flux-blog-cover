@@ -11,10 +11,10 @@ export default defineEventHandler(async (event) => {
   }
     
       let api = '';
-      if (fluxM === 'Flux Dev') {
+      if (fluxM === 'flux-dev') {
         api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-schnell/predictions'
         // api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-dev/predictions'
-      } else if (fluxM === 'Flux Pro') { 
+      } else if (fluxM === 'flux-pro') { 
         api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-pro/predictions'
       }
     const repo = await $fetch(api, {

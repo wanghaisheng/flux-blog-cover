@@ -66,7 +66,8 @@ export default  {
     generate: '产生',
     ratio: '比例',
     setpTip1: '要执行的推理步骤数。 默认值：',
-    setpTip2: '。 如果输出模糊则增加。'
+    setpTip2: '。 如果输出模糊则增加。',
+    size: '尺寸'
   },
   login: {
     login: '登录',
