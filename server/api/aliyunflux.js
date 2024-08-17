@@ -3,9 +3,9 @@ export default defineEventHandler(async (event) => {
     const {
       fluxM,prompt,size,seed,steps
     } = getQuery(event)
-    const authEnvVar = process.env.aliyun_key
+    const authEnvVar = process.env.aliyun_apikey
     if (!authEnvVar) {
-      throw new Error('The $aliyun_key environment variable was not found!');
+      throw new Error('The $aliyun_apikey environment variable was not found!');
     }
       
       const repo = await $fetch('https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis', {
@@ -45,7 +45,9 @@ export default defineEventHandler(async (event) => {
             }
         }
         await getTasks()
-        return tasksrepo
+        if(tasksrepo.output.task_status === 'SUCCEEDED'){
+          return tasksrepo
+        }
       }
       throw new Error('Create Failed!')
       return false
