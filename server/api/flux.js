@@ -3,17 +3,18 @@ export default defineEventHandler(async (event) => {
   const {
     fluxM,prompt,aspect_ratio,guidance,output_quality
   } = getQuery(event)
-  const config = useRuntimeConfig()
-  const authEnvVar = config['replicate_apikey'];
+  // const config = useRuntimeConfig()
+  // const authEnvVar = config['replicate_apikey'];
+  const authEnvVar = process.env.replicate_apikey
   if (!authEnvVar) {
     throw new Error('The $replicate_apikey environment variable was not found!');
   }
     
       let api = '';
-      if (fluxM === 'Flux Dev') {
+      if (fluxM === 'flux-dev') {
         api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-schnell/predictions'
         // api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-dev/predictions'
-      } else if (fluxM === 'Flux Pro') { 
+      } else if (fluxM === 'flux-pro') { 
         api = 'https://api.replicate.com/v1/models/black-forest-labs/flux-pro/predictions'
       }
     const repo = await $fetch(api, {
@@ -21,7 +22,7 @@ export default defineEventHandler(async (event) => {
         headers: {
           accept: 'application/json',
           'content-type': 'application/json',
-          authorization: authEnvVar
+          authorization: 'Bearer ' + authEnvVar
         },
         body: {
           input: {

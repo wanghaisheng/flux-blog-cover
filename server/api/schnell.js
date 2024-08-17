@@ -1,11 +1,14 @@
-// import {  getQuery } from 'h3'
+
 
 export default defineEventHandler(async (event) => {
   const {
     prompt,image_size,num_inference_steps,seed
   } = getQuery(event)
-  const config = useRuntimeConfig()
-  const authEnvVar = config['siliconflow_apikey'];
+  // const config = useRuntimeConfig()
+  // const authEnvVar = config['siliconflow_apikey'];
+
+  const authEnvVar = process.env.siliconflow_apikey
+
   if (!authEnvVar) {
     throw new Error('The $siliconflow_apikey environment variable was not found!');
   }
@@ -14,7 +17,7 @@ export default defineEventHandler(async (event) => {
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      authorization: authEnvVar
+      authorization: 'Bearer ' + authEnvVar
     },
     body: JSON.stringify({
       prompt,
