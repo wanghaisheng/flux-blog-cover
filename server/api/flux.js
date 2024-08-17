@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
         headers: {
           accept: 'application/json',
           'content-type': 'application/json',
-          authorization: authEnvVar
+          authorization: 'Bearer ' + authEnvVar
         },
         body: {
           input: {
