@@ -3,8 +3,9 @@ export default defineEventHandler(async (event) => {
   const {
     fluxM,prompt,aspect_ratio,guidance,output_quality
   } = getQuery(event)
-  const config = useRuntimeConfig()
-  const authEnvVar = config['replicate_apikey'];
+  // const config = useRuntimeConfig()
+  // const authEnvVar = config['replicate_apikey'];
+  const authEnvVar = process.env.replicate_apikey
   if (!authEnvVar) {
     throw new Error('The $replicate_apikey environment variable was not found!');
   }
