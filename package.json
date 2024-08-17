@@ -12,7 +12,9 @@
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "ant-design-vue": "^4.2.3",
+    "buffer": "^6.0.3",
     "lodash": "^4.17.21",
+    "mysql2": "^3.11.0",
     "nuxt": "^3.12.4",
     "vue": "latest"
   },
