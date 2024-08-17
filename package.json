@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@prisma/client": "^4.16.2",
     "ant-design-vue": "^4.2.3",
     "buffer": "^6.0.3",
     "lodash": "^4.17.21",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "google-auth-library": "^9.13.0",
     "less": "^4.2.0",
+    "prisma": "^4.16.2",
     "vue-i18n": "^9.13.1",
     "vue3-google-login": "2.0.31"
   }
